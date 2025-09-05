@@ -1,5 +1,7 @@
-# Welcome to GitHub Desktop!
+# Welcome to README!
 
-This is your README. READMEs are where you can communicate what your project is and how to use it.
+This Projext is to implement a console based Library System using OOP in Java.
 
-Write your name on line 6, save it, and then head back to GitHub Desktop.
+That would Issue,Return,Search Books.
+
+That would also used to compute fines for late returning.
