@@ -1,43 +1,27 @@
 package librarySystem;
-import java.util.Scanner;
-public class StudentMember  {
-	public int regNo;
-	private String name;
-	public String dept;
-	public int sem;
-	Scanner input=new Scanner(System.in);
-	Book borrow[]=new Book[5];
-	public static int count;
-	public StudentMember(int regNo,String name,int sem,String dept) {
-		this.name=name;
-		this.regNo=regNo;
-		this.sem=sem;
-		this.dept=dept;
-	}
-	public StudentMember() {
-		System.out.println("Enter Register No:");
-		this.regNo=input.nextInt();
-		input.nextLine();
-		System.out.println("Enter Name:");
-		this.name=input.nextLine();
-		System.out.println("Enter Semester:");
-		this.sem=input.nextInt();input.nextLine();
-		System.out.println("Enter Department:");
-		this.dept=input.nextLine();
-	}
-	public String getName() { 
-		return this.name;
-	} 
-	public int getRegNo() { 
-		return this.regNo;
-	} 
-	public void setName(String name) { 
-		this.name=name;
-	} 
-	public void setSem(int regNo) { 
-		this.regNo=regNo;
-	} 
-	public void studentInfo() { 
-	System.out.println("Register No: " + this.regNo + " Name: " + this.name +" Semester:"+this.sem+" Department:"+this.dept); 
-	}
+
+public class StudentMember extends Member {
+    private int semester;
+    private String dept;
+
+    public StudentMember(int memberId, String name, String phone, String email, int semester, String dept) {
+        super(memberId, name, phone, email);
+        this.semester = semester;
+        this.dept = dept;
+    }
+
+    @Override
+    public int getBorrowLimit() {
+        return 3; 
+    }
+
+    @Override
+    public double calcFine(int daysLate) {
+        return daysLate > 0 ? daysLate * 5.0 : 0; // ₹5/day late
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() + " | Dept: " + dept + " | Sem: " + semester;
+    }
 }
